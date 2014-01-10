@@ -1,0 +1,30 @@
+Port D
+00 - reserved (serial comms)
+01 - reserved (serial comms)
+02 - 
+03 - 
+04 - Layer Enable
+05 - Layer Select A
+06 - Layer Select B
+07 - Layer Select C
+
+Port B
+08 - Column Output Enable
+09 - Column Data Latch
+10 - reserved (SPI)
+11 - Column Data Out (SPI)
+12 - reserved (SPI)
+13 - Column Clock Out (SPI)
+
+Port C
+A0 - Mode select 1
+A1 - Mode select 2
+A2 - Mode select 3
+A3 - Mode select 4
+A4 - 
+A5 - 
+
+To mount:
+Power
+4 way switch
+Button for reset
