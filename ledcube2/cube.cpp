@@ -6,6 +6,7 @@
 
 Cube::Cube() {
 	ClearAll();
+	this->State = State_off;
 }
 
 void Cube::SetAll(bool on) {
