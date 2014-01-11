@@ -25,8 +25,8 @@ AnimationFunction animFuncsOn[] = {
 const char NUMONFUNCS = 1;
 
 AnimationFunction animFuncsOff[] = {
-	&anim_OffToCornerSimple,
-	&anim_OffToOffText
+	&anim_OffToCornerSimple//,
+	//&anim_OffToOffText
 };
 const char NUMOFFFUNCS = 2;
 

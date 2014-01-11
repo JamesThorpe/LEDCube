@@ -58,14 +58,19 @@ extern void anim_OnToCornerDiagonal();
 extern const char NUMONFUNCS;
 
 //general funcs
+void anim_SetCoordFromCorner(char *x, char* y, char *z, CubeCorners corner);
+void anim_generalEnumerateAxis(CubeCorners startCorner, CubeCorners endCorner, bool on, bool trail);
 void anim_ScrollPlanes();
-void anim_CornerToCorner(bool xPos, bool yPos, bool zPos, bool clear, bool on);
+//void anim_CornerToCorner(bool xPos, bool yPos, bool zPos, bool clear, bool on);
 void anim_RandomLineScroll();
 void anim_ScrollText(char* Text, char speed);
 void anim_Flash();
 void anim_CubeMove();
-void anim_PlaneFlipWithPause(bool pos, char plane);
 
+CubeCorners getOppositeCornerCube(CubeCorners corner);
+//CubeCorners getOppositeCornerPlane(CubeCorners corner, Planes plane);
+//get random opposite corner on plane from corner
+//get random adjacent corner on plane from corner
 
 
 #endif

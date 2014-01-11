@@ -86,50 +86,141 @@ void anim_RandomLineScroll() {
     delay(30);
   }
 }
-void anim_CornerToCorner(bool xPos, bool yPos, bool zPos, bool clear, bool on) {
 
-
-	for (int count = 0; count < 22; count++) {
-  if (clear)
-	cube->SetAll(!on);
-		char x, y, z;
-		
-		x = xPos ? 0 : 7;
-		do {
-			y = yPos ? 0 : 7;
-			do {
-				z = zPos ? 0 : 7;
-				do {
-                                        char xc, yc, zc;
-                                        xc = xPos ? x : 7-x;
-                                        yc = yPos ? y : 7-y;
-                                        zc = zPos ? z : 7-z;
-					if (xc + yc + zc == count)
-						cube->SetLed(x,y,z,on);
-
-					if (zPos)
-						z++;
-					else
-						z--;
-				} while ((zPos && z < 8) || (!zPos && z >= 0));
-
-				if (yPos)
-					y++;
-				else
-					y--;
-
-			} while ((yPos && y < 8) || (!yPos && y >= 0));
-
-
-			if (xPos)
-				x++;
-			else
-				x--;
-		} while ((xPos && x < 8) || (!xPos && x >= 0));
-		delay(ANIMFAST);
-
+void anim_SetCoordFromCorner(char *x, char *y, char *z, CubeCorners corner) {
+	switch(corner) {
+	case Corner_xyz:
+		*x=*y=*z=0;
+		break;
+	case Corner_pxyz:
+		*x=7;*y=*z=0;
+		break;
+	case Corner_xpyz:
+		*x=*z=0;*y=7;
+		break;
+	case Corner_pxpyz:
+		*x=*y=7;*z=0;
+		break;
+	case Corner_xypz:
+		*x=*y=0;*z=7;
+		break;
+	case Corner_pxypz:
+		*x=*z=7;*y=0;
+		break;
+	case Corner_xpypz:
+		*x=0;*y=*z=7;
+		break;
+	case Corner_pxpypz:
+		*x=*y=*z=7;
+		break;
 	}
 }
+
+void anim_generalEnumerateAxis(CubeCorners startCorner, CubeCorners endCorner, bool on, bool clear) {
+	char x1,y1,z1,x2,y2,z2;
+	anim_SetCoordFromCorner(&x1, &y1, &z1, startCorner);
+	anim_SetCoordFromCorner(&x2, &y2, &z2, endCorner);
+	char dx, dy, dz;
+	dx=dy=dz=0;
+
+	if (x1 > x2) dx = -1;
+	else if (x2 > x1) dx = 1;
+	if (y1 > y2) dy = -1;
+	else if (y2 > y1) dy = 1;
+	if (z1 > z2) dz = -1;
+	else if (z2 > z1) dz = 1;
+
+	char cx, cy, cz;
+	for (int count = 0; count < 22; count++) {
+		if (clear)
+			cube->SetAll(!on);
+
+		cx = x1;
+		do {
+			cy = y1;
+			do {
+				cz = z1;
+				do {
+					char xx, yy, zz;
+					xx = dx == -1 ? 7-cx : cx;
+					yy = dy == -1 ? 7-cy : cy;
+					zz = dz == -1 ? 7-cz : cz;
+					if (xx+yy+zz == count)
+						cube->SetLed(cx,cy,cz, on);
+
+					cz += dz;
+				}while(dz != 0 && abs(z1-cz) != 8);
+				cy += dy;
+			}while(dy != 0 && abs(y1-cy) != 8);
+			cx += dx;
+		} while(dx != 0 && abs(x1-cx) != 8);
+		delay(ANIMFAST);
+	}
+}
+
+
+CubeCorners getOppositeCornerCube(CubeCorners corner) {
+	switch(corner) {
+	case Corner_xyz:
+		return Corner_pxpypz;
+		break;
+	case Corner_pxyz:
+		return Corner_xpypz;
+		break;
+	case Corner_xpyz:
+		return Corner_pxypz;
+		break;
+	case Corner_xypz:
+		return Corner_pxpyz;
+		break;
+	case Corner_pxpyz:
+		return Corner_xypz;
+		break;
+	case Corner_pxypz:
+		return Corner_xpyz;
+		break;
+	case Corner_xpypz:
+		return Corner_pxyz;
+		break;
+	case Corner_pxpypz:
+		return Corner_xyz;
+		break;
+	}
+}
+/*CubeCorners getOppositeCornerPlane(CubeCorners corner, Planes plane) {
+	switch(corner) {
+	case Corner_xyz:
+		switch(plane) {
+		case Plane_x:
+			return Corner_xpypz;
+		case Plane_y:
+			return Corner_pxypz;
+		case Plane_z:
+			return Corner_pxpyz;
+		}
+	case Corner_pxyz:
+		return Corner_xpypz;
+		break;
+	case Corner_xpyz:
+		return Corner_pxypz;
+		break;
+	case Corner_xypz:
+		return Corner_pxpyz;
+		break;
+	case Corner_pxpyz:
+		return Corner_xypz;
+		break;
+	case Corner_pxypz:
+		return Corner_xpyz;
+		break;
+	case Corner_xpypz:
+		return Corner_pxyz;
+		break;
+	case Corner_pxpypz:
+		return Corner_xyz;
+		break;
+	}
+}*/
 
 void anim_CubeMove() {
   for (char x =0; x < 8; x++) {
@@ -143,40 +234,3 @@ void anim_CubeMove() {
   }
 }
 
-
-void anim_PlaneFlipWithPause(bool pos, char plane)
-{
-	bool *stopped = new bool[8*8];
-	memset(stopped, 0, sizeof(*stopped) * 64);
-
-	char x, y, z;
-
-	switch (plane) {
-	case PLANE_X:
-		cube->SetPlaneYZ(pos?0:7, true);
-		break;
-	case PLANE_Y:
-		cube->SetPlaneXZ(pos?0:7, true);
-		break;
-	case PLANE_Z:
-		cube->SetPlaneXY(pos?0:7, true);
-		break;
-	}
-
-	do {
-		for (char a = 0; a < 8; a++) {
-			for (char b = 0; b < 8; b++) {
-				switch (plane) {
-
-				}
-			}
-		}
-	} while(
-		(plane == PLANE_X && ((pos && x < 8) || (!pos && x >= 0))) ||
-		(plane == PLANE_Y && ((pos && y < 8) || (!pos && y >= 0))) ||
-		(plane == PLANE_Z && ((pos && z < 8) || (!pos && z >= 0))));
-	
-
-
-	delete[] stopped;
-}
