@@ -50,6 +50,7 @@ extern void anim_CornerToOffSimple();
 extern void anim_CornerToCornerDiagonalSimple();
 extern void anim_CornerToCornerPixelSimple();
 extern void anim_CornerToOnDiagonal();
+extern void anim_CornerToPlaneDiagonalFill();
 extern const char NUMCORNERFUNCS;
 
 //From On

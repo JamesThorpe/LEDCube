@@ -2,6 +2,8 @@
 #ifndef ard_h
 #define ard_h
 
+#include <stdlib.h>
+
 extern int PORTC;
 extern int PORTD;
 

@@ -13,9 +13,10 @@ AnimationFunction animFuncsCorner[] = {
 	&anim_CornerToCornerPixelSimple,
 	&anim_CornerToCornerPixelSimple,
 	&anim_CornerToCornerPixelSimple,
-	&anim_CornerToOnDiagonal
+	&anim_CornerToOnDiagonal,
+	&anim_CornerToPlaneDiagonalFill
 };
-const char NUMCORNERFUNCS = 7;
+const char NUMCORNERFUNCS = 8;
 
 
 AnimationFunction animFuncsOn[] = {
