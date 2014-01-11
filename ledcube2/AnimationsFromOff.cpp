@@ -7,6 +7,7 @@ void anim_OffToOffText() {
 //go from off to a corner
 void anim_OffToCornerSimple() {
 	CubeCorners corner = (CubeCorners)random(8);
+
 	char x, y, z;
 	switch(corner) {
 	case Corner_xyz:

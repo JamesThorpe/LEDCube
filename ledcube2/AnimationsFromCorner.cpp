@@ -1,148 +1,35 @@
 #include "animations.h"
 
+void anim_CornerToCornerDiagonalPlane() {
+	CubeCorners target;
+	Planes planes[3];
+	getPlanesForCorner(cube->ActiveCorner, planes);
+
+	target = getOppositeCornerPlane(cube->ActiveCorner, planes[random(3)]);
+	anim_generalEnumerateAxis(cube->ActiveCorner, target, true, true);
+	cube->ActiveCorner = target;
+
+}
+
 void anim_CornerToPlaneDiagonalFill() {
 	CubeCorners target;
-	switch(cube->ActiveCorner) {
-	case Corner_xyz:
+	Planes planes[3];
 
-		switch(random(3)) {
-		case 0:
-			target = Corner_pxypz;
-			cube->ActivePlane = Plane_y;
-			break;
-		case 1:
-			target = Corner_xpypz;
-			cube->ActivePlane = Plane_x;
-			break;
-		case 2:
-			target = Corner_pxpyz;
-			cube->ActivePlane = Plane_z;
-			break;
-		}
-		break;
-	case Corner_pxyz:
-		switch(random(3)) {
-		case 0:
-			target = Corner_xypz;
-			cube->ActivePlane = Plane_y;
-			break;
-		case 1:
-			target = Corner_pxpypz;
-			cube->ActivePlane = Plane_px;
-			break;
-		case 2:
-			target = Corner_xypz;
-			cube->ActivePlane = Plane_z;
-			break;
-		}
-		break;
-	case Corner_xpyz:
-		switch(random(3)) {
-		case 0:
-			target = Corner_pxyz;
-			cube->ActivePlane = Plane_z;
-			break;
-		case 1:
-			target = Corner_xypz;
-			cube->ActivePlane = Plane_x;
-			break;
-		case 2:
-			target = Corner_pxpypz;
-			cube->ActivePlane = Plane_py;
-			break;
-		}
-		break;
-	case Corner_xypz:
-		switch(random(3)) {
-		case 0:
-			target = Corner_pxpypz;
-			cube->ActivePlane = Plane_pz;
-			break;
-		case 1:
-			target = Corner_xpyz;
-			cube->ActivePlane = Plane_x;
-			break;
-		case 2:
-			target = Corner_pxyz;
-			cube->ActivePlane = Plane_y;
-			break;
-		}
-		break;
-	case Corner_pxpyz:
-		switch(random(3)) {
-		case 0:
-			target = Corner_xpypz;
-			cube->ActivePlane = Plane_py;
-			break;
-		case 1:
-			target = Corner_xyz;
-			cube->ActivePlane = Plane_z;
-			break;
-		case 2:
-			target = Corner_pxypz;
-			cube->ActivePlane = Plane_px;
-			break;
-		}
-		break;
-	case Corner_pxypz:
-		switch(random(3)) {
-		case 0:
-			target = Corner_xpypz;
-			cube->ActivePlane = Plane_pz;
-			break;
-		case 1:
-			target = Corner_pxpyz;
-			cube->ActivePlane = Plane_px;
-			break;
-		case 2:
-			target = Corner_xyz;
-			cube->ActivePlane = Plane_y;
-			break;
-		}
-		break;
-	case Corner_xpypz:
-		switch(random(3)) {
-		case 0:
-			target = Corner_pxypz;
-			cube->ActivePlane = Plane_pz;
-			break;
-		case 1:
-			target = Corner_xyz;
-			cube->ActivePlane = Plane_x;
-			break;
-		case 2:
-			target = Corner_pxpyz;
-			cube->ActivePlane = Plane_py;
-			break;
-		}
-		break;
-	case Corner_pxpypz:
-		switch(random(3)) {
-		case 0:
-			target = Corner_xypz;
-			cube->ActivePlane = Plane_pz;
-			break;
-		case 1:
-			target = Corner_pxyz;
-			cube->ActivePlane = Plane_px;
-			break;
-		case 2:
-			target = Corner_xpyz;
-			cube->ActivePlane = Plane_py;
-			break;
-		}
-		break;
-	}
+	//get planes for corner
+	getPlanesForCorner(cube->ActiveCorner, planes);
+	
+	//choose random plane
+	Planes plane = planes[random(3)];
+
+
+	//get opposite corner on plane
+	target = getOppositeCornerPlane(cube->ActiveCorner, plane);
+
 
 	anim_generalEnumerateAxis(cube->ActiveCorner, target, true, false);
 	
 	cube->State = State_plane;
-
-
-	delay(1000);
-	cube->SetAll(false);
-	cube->State = State_off;
-
+	cube->ActivePlane = plane;
 }
 
 void anim_CornerToCornerPixelSimple() {
