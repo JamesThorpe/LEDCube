@@ -29,8 +29,8 @@ void Cube::SetPlaneXZ(char layer, bool on) {
 			else
 				data[y][x] &= ~(1 << layer);
 
-		} while(x++ < 8);
-	} while(y++ < 8);
+		} while(++x < 8);
+	} while(++y < 8);
   
 }
 void Cube::SetPlaneYZ(char layer, bool on) {
@@ -38,7 +38,7 @@ void Cube::SetPlaneYZ(char layer, bool on) {
 	char x = 0;
 	do {
 		memset((void*)&data[x][layer], on?255:0, sizeof(data[x][layer]));
-	} while (x++ < 8);
+	} while (++x < 8);
   
 }
 void Cube::ScrollOuterColumns(char src) {

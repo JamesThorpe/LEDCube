@@ -14,22 +14,27 @@ AnimationFunction animFuncsCorner[] = {
 	&anim_CornerToCornerPixelSimple,
 	&anim_CornerToCornerPixelSimple,
 	&anim_CornerToOnDiagonal,
-	&anim_CornerToPlaneDiagonalFill
+	&anim_CornerToPlaneDiagonalFill,
+	&anim_CornerToCornerDiagonalPlane
 };
-const char NUMCORNERFUNCS = 8;
+const char NUMCORNERFUNCS = 9;
 
 
 AnimationFunction animFuncsOn[] = {
-	&anim_OnToCornerDiagonal
+	&anim_OnToCornerDiagonal,
+	&anim_OnToPlaneSimple
 };
-const char NUMONFUNCS = 1;
+const char NUMONFUNCS = 2;
 
 AnimationFunction animFuncsOff[] = {
 	&anim_OffToCornerSimple//,
 	//&anim_OffToOffText
 };
-const char NUMOFFFUNCS = 2;
+const char NUMOFFFUNCS = 1;
 
 AnimationFunction animFuncsPlane[] = {
-	&anim_nullAnimation
+	&anim_PlaneToCornerDiagonalEmpty,
+	&anim_PlaneToPlaneSimple,
+	&anim_PlaneToOnSimple
 };
+const char NUMPLANEFUNCS = 3;

@@ -15,7 +15,10 @@ void runCube() {
 		func = animFuncsOn[random(NUMONFUNCS)];
 		break;
 	case State_plane:
+		func = animFuncsPlane[random(NUMPLANEFUNCS)];
 		break;
+	default:
+		int x = 0;
 	}
 
 	func();

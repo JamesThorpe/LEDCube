@@ -27,7 +27,8 @@ enum Planes {
 	Plane_y,
 	Plane_py,
 	Plane_z,
-	Plane_pz
+	Plane_pz,
+	Plane_undefined
 };
 
 enum CubeStates {
