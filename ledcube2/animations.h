@@ -14,6 +14,7 @@ typedef void (*AnimationFunction)(void);
 #define ANIMSLOW 180
 #define ANIMMED 100
 #define ANIMFAST 40
+#define ANIMREALLYFAST 20
 
 extern AnimationFunction animFuncsCorner[];
 extern AnimationFunction animFuncsOn[];
@@ -43,6 +44,7 @@ void anim_nullAnimation();
 //From Off
 extern void anim_OffToCornerSimple();
 extern void anim_OffToOffText();
+extern void OffToOnFlashPlanes();
 extern const char NUMOFFFUNCS;
 
 //From Corner
