@@ -46,7 +46,7 @@ digitalWrite(PIN_LAYERENABLE, LOW);
 	digitalWrite(PIN_SINKLATCH, LOW);
 
 	//PORTD = 00-07, using 05 - 07 for layer.  00 & 01 are serial
-	PORTD = (PORTD & portMask) | (currentLayer << 5);
+	PORTD = (PORTD & portMask) | ((currentLayer) << 5);
 digitalWrite(PIN_LAYERENABLE, HIGH);
 	//enable sinks
 	//digitalWrite(PIN_SINKOUTPUT, LOW); // *** ...and here - any time spent between these lines is time the cube isn't on at all
@@ -74,7 +74,7 @@ void setup () {
     SPI.begin();
     Serial.begin(9600);
 
-  randomSeed(analogRead(0));
+  randomSeed(analogRead(5));
   Timer1.initialize(1500);
   Timer1.attachInterrupt(isr_output);
   

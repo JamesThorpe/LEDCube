@@ -27,11 +27,11 @@ AnimationFunction animFuncsOn[] = {
 const char NUMONFUNCS = 2;
 
 AnimationFunction animFuncsOff[] = {
-	&anim_OffToCornerSimple,
-	&OffToOnFlashPlanes//,
+	&anim_OffToCornerSimple//,
+	//&OffToOnFlashPlanes,
 	//&anim_OffToOffText
 };
-const char NUMOFFFUNCS = 2;
+const char NUMOFFFUNCS = 1;
 
 AnimationFunction animFuncsPlane[] = {
 	&anim_PlaneToCornerDiagonalEmpty,

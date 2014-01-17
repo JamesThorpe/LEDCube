@@ -88,5 +88,6 @@ Planes getOppositePlane(Planes plane);
 //get random opposite corner on plane from corner
 //get random adjacent corner on plane from corner
 
+unsigned char reverse(unsigned char b);
 
 #endif
