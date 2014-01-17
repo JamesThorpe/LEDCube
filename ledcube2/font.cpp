@@ -175,7 +175,7 @@ struct font_char GetFontDataForCharacter(char chr) {
 }
 
 #ifndef FONTFACE2
-bool FONT_A[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_A[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0},
 	{1,0,1},
 	{1,1,1},
@@ -183,7 +183,7 @@ bool FONT_A[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1}
 };
 
-bool FONT_B[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_B[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,0},
 	{1,0,1},
 	{1,1,0},
@@ -191,7 +191,7 @@ bool FONT_B[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,0}
 };
 
-bool FONT_C[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_C[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,1},
 	{1,0,0},
 	{1,0,0},
@@ -199,7 +199,7 @@ bool FONT_C[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,1}
 };
 
-bool FONT_D[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_D[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,0},
 	{1,0,1},
 	{1,0,1},
@@ -207,7 +207,7 @@ bool FONT_D[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,0}
 };
 
-bool FONT_E[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_E[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1},
 	{1,0,0},
 	{1,1,1},
@@ -215,7 +215,7 @@ bool FONT_E[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1}
 };
 
-bool FONT_F[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_F[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1},
 	{1,0,0},
 	{1,1,0},
@@ -223,7 +223,7 @@ bool FONT_F[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0}
 };
 
-bool FONT_G[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_G[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,1},
 	{1,0,0},
 	{1,0,1},
@@ -231,7 +231,7 @@ bool FONT_G[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,1}
 };
 
-bool FONT_H[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_H[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1},
 	{1,0,1},
 	{1,1,1},
@@ -239,7 +239,7 @@ bool FONT_H[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1}
 };
 
-bool FONT_I[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_I[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1},
 	{0,1,0},
 	{0,1,0},
@@ -247,7 +247,7 @@ bool FONT_I[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1}
 };
 
-bool FONT_J[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_J[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,1},
 	{0,0,1},
 	{0,0,1},
@@ -255,7 +255,7 @@ bool FONT_J[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,0}
 };
 
-bool FONT_K[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_K[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1},
 	{1,0,1},
 	{1,1,0},
@@ -263,7 +263,7 @@ bool FONT_K[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1}
 };
 
-bool FONT_L[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_L[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0},
 	{1,0,0},
 	{1,0,0},
@@ -271,7 +271,7 @@ bool FONT_L[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1}
 };
 
-bool FONT_M[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_M[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1},
 	{1,1,1},
 	{1,0,1},
@@ -279,7 +279,7 @@ bool FONT_M[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1}
 };
 
-bool FONT_N[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_N[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1},
 	{1,1,1},
 	{1,1,1},
@@ -287,21 +287,21 @@ bool FONT_N[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1}
 };
 
-bool FONT_O[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_O[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0},
 	{1,0,1},
 	{1,0,1},
 	{1,0,1},
 	{0,1,0}
 };
-bool FONT_P[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_P[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,0},
 	{1,0,1},
 	{1,1,0},
 	{1,0,0},
 	{1,0,0}
 };
-bool FONT_Q[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_Q[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0},
 	{1,0,1},
 	{1,0,1},
@@ -309,70 +309,70 @@ bool FONT_Q[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1}
 };
 
-bool FONT_R[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_R[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,0},
 	{1,0,1},
 	{1,1,0},
 	{1,0,1},
 	{1,0,1}
 };
-bool FONT_S[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_S[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,1},
 	{1,0,0},
 	{0,1,0},
 	{0,0,1},
 	{1,1,0}
 };
-bool FONT_T[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_T[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1},
 	{0,1,0},
 	{0,1,0},
 	{0,1,0},
 	{0,1,0}
 };
-bool FONT_U[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_U[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1},
 	{1,0,1},
 	{1,0,1},
 	{1,0,1},
 	{1,1,1}
 };
-bool FONT_V[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_V[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1},
 	{1,0,1},
 	{1,0,1},
 	{1,0,1},
 	{0,1,0}
 };
-bool FONT_W[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_W[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1},
 	{1,0,1},
 	{1,0,1},
 	{1,1,1},
 	{1,0,1}
 };
-bool FONT_X[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_X[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1},
 	{1,0,1},
 	{0,1,0},
 	{1,0,1},
 	{1,0,1}
 };
-bool FONT_Y[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_Y[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1},
 	{1,0,1},
 	{0,1,0},
 	{0,1,0},
 	{0,1,0}
 };
-bool FONT_Z[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_Z[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1},
 	{0,0,1},
 	{0,1,0},
 	{1,0,0},
 	{1,1,1}
 };
-bool FONT_SPACE[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_SPACE[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0},
 	{0,0,0},
 	{0,0,0},
@@ -380,7 +380,7 @@ bool FONT_SPACE[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0}
 };
 
-bool FONT_0[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_0[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0},
 	{1,0,1},
 	{1,1,1},
@@ -388,42 +388,42 @@ bool FONT_0[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0}
 };
 
-bool FONT_1[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_1[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0},
 	{1,1,0},
 	{0,1,0},
 	{0,1,0},
 	{1,1,1}
 };
-bool FONT_2[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_2[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,0},
 	{0,0,1},
 	{0,1,0},
 	{1,0,0},
 	{1,1,1}
 };
-bool FONT_3[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_3[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,0},
 	{0,0,1},
 	{1,1,0},
 	{0,0,1},
 	{1,1,0}
 };
-bool FONT_4[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_4[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1},
 	{1,0,1},
 	{0,1,1},
 	{0,0,1},
 	{0,0,1}
 };
-bool FONT_5[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_5[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1},
 	{1,0,0},
 	{1,1,0},
 	{0,0,1},
 	{1,1,0}
 };
-bool FONT_6[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_6[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,1},
 	{1,0,0},
 	{1,1,0},
@@ -431,7 +431,7 @@ bool FONT_6[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0}
 };
 
-bool FONT_7[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_7[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1},
 	{0,0,1},
 	{0,1,0},
@@ -439,7 +439,7 @@ bool FONT_7[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0}
 };
 
-bool FONT_8[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_8[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0},
 	{1,0,1},
 	{0,1,0},
@@ -447,7 +447,7 @@ bool FONT_8[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0}
 };
 
-bool FONT_9[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_9[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0},
 	{1,0,1},
 	{0,1,1},
@@ -455,7 +455,7 @@ bool FONT_9[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,0}
 };
 
-bool FONT_HYP[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_HYP[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0},
 	{0,0,0},
 	{1,1,1},
@@ -463,7 +463,7 @@ bool FONT_HYP[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0}
 };
 
-bool FONT_STOP[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_STOP[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0},
 	{0,0,0},
 	{0,0,0},
@@ -471,7 +471,7 @@ bool FONT_STOP[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0}
 };
 
-bool FONT_EXC[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_EXC[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0},
 	{0,1,0},
 	{0,1,0},
@@ -479,7 +479,7 @@ bool FONT_EXC[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0}
 };
 
-bool FONT_UNKNOWN[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_UNKNOWN[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1},
 	{0,1,0},
 	{1,0,1},
@@ -488,7 +488,7 @@ bool FONT_UNKNOWN[FONT_HEIGHT][FONT_WIDTH] = {
 };
 #else
 
-bool FONT_A[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_A[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,1,1,0},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -498,7 +498,7 @@ bool FONT_A[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,0,0,0,1}
 };
-bool FONT_B[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_B[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1,1,0},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -508,7 +508,7 @@ bool FONT_B[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,1,1,1,0}
 };
-bool FONT_C[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_C[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,1,1,1},
 	{1,0,0,0,0},
 	{1,0,0,0,0},
@@ -518,7 +518,7 @@ bool FONT_C[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,0},
 	{0,1,1,1,1}
 };
-bool FONT_D[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_D[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1,1,0},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -528,7 +528,7 @@ bool FONT_D[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,1,1,1,0}
 };
-bool FONT_E[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_E[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1,1,1},
 	{1,0,0,0,0},
 	{1,0,0,0,0},
@@ -538,7 +538,7 @@ bool FONT_E[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,0},
 	{1,1,1,1,1}
 };
-bool FONT_F[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_F[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1,1,1},
 	{1,0,0,0,0},
 	{1,0,0,0,0},
@@ -548,7 +548,7 @@ bool FONT_F[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,0},
 	{1,0,0,0,0}
 };
-bool FONT_G[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_G[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,1,1,1},
 	{1,0,0,0,0},
 	{1,0,0,0,0},
@@ -558,7 +558,7 @@ bool FONT_G[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{0,1,1,1,0}
 };
-bool FONT_H[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_H[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -568,7 +568,7 @@ bool FONT_H[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,0,0,0,1}
 };
-bool FONT_I[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_I[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1,1,1},
 	{0,0,1,0,0},
 	{0,0,1,0,0},
@@ -578,7 +578,7 @@ bool FONT_I[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,1,0,0},
 	{1,1,1,1,1}
 };
-bool FONT_J[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_J[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,1,1,1},
 	{0,0,0,0,1},
 	{0,0,0,0,1},
@@ -588,7 +588,7 @@ bool FONT_J[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{0,1,1,1,0}
 };
-bool FONT_K[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_K[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,0,0,1,0},
 	{1,0,1,0,0},
@@ -598,7 +598,7 @@ bool FONT_K[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,0,0,0,1}
 };
-bool FONT_L[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_L[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,0},
 	{1,0,0,0,0},
 	{1,0,0,0,0},
@@ -608,7 +608,7 @@ bool FONT_L[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,0},
 	{1,1,1,1,1}
 };
-bool FONT_M[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_M[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,1,0,1,1},
 	{1,0,1,0,1},
@@ -618,7 +618,7 @@ bool FONT_M[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,0,0,0,1}
 };
-bool FONT_N[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_N[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,1,0,0,1},
 	{1,0,1,0,1},
@@ -628,7 +628,7 @@ bool FONT_N[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,0,0,0,1}
 };
-bool FONT_O[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_O[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,1,1,0},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -638,7 +638,7 @@ bool FONT_O[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{0,1,1,1,0}
 };
-bool FONT_P[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_P[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1,1,0},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -648,7 +648,7 @@ bool FONT_P[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,0},
 	{1,0,0,0,0}
 };
-bool FONT_Q[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_Q[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,1,1,0},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -658,7 +658,7 @@ bool FONT_Q[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,1,0},
 	{0,1,1,0,1}
 };
-bool FONT_R[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_R[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1,1,0},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -668,7 +668,7 @@ bool FONT_R[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,0,0,0,1}
 };
-bool FONT_S[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_S[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,1,1,1},
 	{1,0,0,0,0},
 	{1,0,0,0,0},
@@ -678,7 +678,7 @@ bool FONT_S[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{0,1,1,1,0}
 };
-bool FONT_T[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_T[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1,1,1},
 	{0,0,1,0,0},
 	{0,0,1,0,0},
@@ -688,7 +688,7 @@ bool FONT_T[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,1,0,0},
 	{0,0,1,0,0}
 };
-bool FONT_U[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_U[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -698,7 +698,7 @@ bool FONT_U[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{0,1,1,1,0}
 };
-bool FONT_V[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_V[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -708,7 +708,7 @@ bool FONT_V[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0,1,0},
 	{0,0,1,0,0}
 };
-bool FONT_W[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_W[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -718,7 +718,7 @@ bool FONT_W[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,0,1,1},
 	{1,0,0,0,1}
 };
-bool FONT_X[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_X[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,0,0,0,1},
 	{0,1,0,1,0},
@@ -728,7 +728,7 @@ bool FONT_X[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,0,0,0,1}
 };
-bool FONT_Y[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_Y[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,0,0,0,1},
 	{0,1,0,1,0},
@@ -738,7 +738,7 @@ bool FONT_Y[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,1,0,0},
 	{0,0,1,0,0}
 };
-bool FONT_Z[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_Z[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1,1,1},
 	{0,0,0,0,1},
 	{0,0,0,1,0},
@@ -748,7 +748,7 @@ bool FONT_Z[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,0},
 	{1,1,1,1,1}
 };
-bool FONT_SPACE[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_SPACE[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0,0,0},
 	{0,0,0,0,0},
 	{0,0,0,0,0},
@@ -758,7 +758,7 @@ bool FONT_SPACE[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0,0,0},
 	{0,0,0,0,0}
 };
-bool FONT_0[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_0[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,1,1,0},
 	{1,0,0,0,1},
 	{1,0,0,1,1},
@@ -768,7 +768,7 @@ bool FONT_0[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{0,1,1,1,0}
 };
-bool FONT_1[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_1[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,1,0,0},
 	{0,1,1,0,0},
 	{0,0,1,0,0},
@@ -778,7 +778,7 @@ bool FONT_1[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,1,0,0},
 	{1,1,1,1,1}
 };
-bool FONT_2[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_2[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,1,1,0},
 	{1,0,0,0,1},
 	{0,0,0,1,0},
@@ -788,7 +788,7 @@ bool FONT_2[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,0},
 	{1,1,1,1,1}
 };
-bool FONT_3[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_3[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1,1,0},
 	{0,0,0,0,1},
 	{0,0,0,0,1},
@@ -798,7 +798,7 @@ bool FONT_3[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0,0,1},
 	{1,1,1,1,0}
 };
-bool FONT_4[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_4[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0,1,0},
 	{0,0,1,1,0},
 	{0,1,0,1,0},
@@ -808,7 +808,7 @@ bool FONT_4[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0,1,0},
 	{0,0,0,1,0}
 };
-bool FONT_5[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_5[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1,1,1},
 	{1,0,0,0,0},
 	{1,0,0,0,0},
@@ -818,7 +818,7 @@ bool FONT_5[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0,0,1},
 	{1,1,1,1,0}
 };
-bool FONT_6[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_6[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,1,1,0},
 	{1,0,0,0,1},
 	{1,0,0,0,0},
@@ -828,7 +828,7 @@ bool FONT_6[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{0,1,1,1,0}
 };
-bool FONT_7[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_7[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1,1,1},
 	{0,0,0,0,1},
 	{0,0,0,1,0},
@@ -838,7 +838,7 @@ bool FONT_7[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,1,0,0},
 	{0,0,1,0,0}
 };
-bool FONT_8[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_8[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,1,1,0},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -848,7 +848,7 @@ bool FONT_8[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{0,1,1,1,0}
 };
-bool FONT_9[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_9[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,1,1,0},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -858,7 +858,7 @@ bool FONT_9[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{0,1,1,1,0}
 };
-bool FONT_HYP[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_HYP[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0,0,0},
 	{0,0,0,0,0},
 	{0,0,0,0,0},
@@ -868,7 +868,7 @@ bool FONT_HYP[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0,0,0},
 	{0,0,0,0,0}
 };
-bool FONT_STOP[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_STOP[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0,0,0},
 	{0,0,0,0,0},
 	{0,0,0,0,0},
@@ -878,7 +878,7 @@ bool FONT_STOP[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0,0,0},
 	{1,0,0,0,0}
 };
-bool FONT_EXC[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_EXC[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,1,0,0},
 	{0,0,1,0,0},
 	{0,0,1,0,0},
@@ -888,7 +888,7 @@ bool FONT_EXC[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0,0,0},
 	{0,0,1,0,0}
 };
-bool FONT_UNKNOWN[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_UNKNOWN[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0,1,0},
 	{1,0,1,0,1},
 	{0,1,0,1,0},
@@ -898,7 +898,7 @@ bool FONT_UNKNOWN[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0,1,0},
 	{1,0,1,0,1}
 };
-bool FONT_[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0,0,0},
 	{0,0,0,0,0},
 	{0,0,0,0,0},

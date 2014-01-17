@@ -1,7 +1,7 @@
 #include "animations.h"
 
 void anim_OffToOffText() {
-	//anim_ScrollText("Hello World!\0", ANIMMED);
+	anim_ScrollText("Hello World!", ANIMMED);
 }
 
 //go from off to a corner

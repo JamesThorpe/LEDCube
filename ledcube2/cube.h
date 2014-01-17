@@ -63,7 +63,9 @@ public:
         void DrawLineY(char startY, char endY, char x, char z, bool on);
         void DrawLineZ(char startZ, char endZ, char x, char y, bool on);
         void DrawCube(char x, char y, char z, char s, bool clr);
-        
+    
+	void RotateOuterLayers(Planes rotationPlane, bool clockwise, Planes sourcePlane, unsigned char *source);
+
 	unsigned char* GetLayer(char layer);
 };
 

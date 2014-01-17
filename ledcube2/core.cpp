@@ -3,6 +3,13 @@
 
 void runCube() {
 
+	cube->SetPlaneXZ(0, true);
+	while (true) {
+	cube->RotateOuterLayers(Plane_x, true, Plane_z, 0);
+	delay(1000);
+	}
+
+
 	AnimationFunction func;
 	switch(cube->State) {
 	case State_corner:

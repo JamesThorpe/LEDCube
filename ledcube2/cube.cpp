@@ -3,6 +3,7 @@
 #endif
 
 #include "cube.h"
+#include "animations.h"
 
 Cube::Cube() {
 	ClearAll();
@@ -97,7 +98,7 @@ void Cube::ScrollOuterColumns(char src) {
 		data[layer][7] &= ~bit;
 		data[layer][7] |= (src & (1 << layer)) == (1 << layer) ? 1 : 0;
 
-	} while(layer++ < 8);
+	} while(++layer < 8);
   
 }
 void Cube::FillAll() {
@@ -161,4 +162,65 @@ void Cube::DrawCube(char x, char y, char z, char s, bool clr) {
 
 bool Cube::GetLed(char x, char y, char z) {
 	return (data[z][x] & (1<<y)) == (1<<y);
+}
+
+void Cube::RotateOuterLayers(Planes rotationPlane, bool clockwise, Planes sourcePlane, unsigned char *source) {
+	Planes plane = rotationPlane;
+	unsigned char newData = 0;
+	if (source != 0)
+		newData = *source;
+	if (rotationPlane == Plane_px ||
+		rotationPlane == Plane_py ||
+		rotationPlane == Plane_pz) {
+		clockwise = !clockwise;
+		plane = getOppositePlane(rotationPlane);
+		newData = reverse(newData);
+	}
+
+	switch (rotationPlane) {
+	case Plane_x:
+		if (clockwise) {
+			//store byte in y=0,z=0
+			unsigned char original = 0;
+			for (char x = 0; x < 8; x++) {
+				original |= (data[0][x] & 1);
+
+				//shift y down
+				for (char z = 0; z < 7; z++) {
+					data[z][x] &= ~1;
+					data[z][x] |= (data[z+1][x] & 1);
+				}
+			
+				//shift pz towards
+				data[7][x] >>= 1;
+			
+
+				//shift py up
+				for (char z = 7; z > 0; z--) {
+					data[z][x] &= ~(1<<7);
+					data[z][x] |= (data[z-1][x] & (1<<7));
+				}
+			
+
+				//shift z away
+				data[0][x] <<= 1;
+			
+				//put byte in y=1, z=0
+				data[0][x] &= ~(1<<1);
+				data[0][x] |= original & (1<<1);
+			}
+		} else {
+			//store byte in y = 0, z=0
+			//shift y up
+			//shift pz away
+			//shift py down
+			//shift z towards
+			//restore byte in y =0, z=1
+		}
+		break;
+	case Plane_y:
+		break;
+	case Plane_z:
+		break;
+	}
 }
