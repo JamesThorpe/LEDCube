@@ -65,6 +65,7 @@ extern const char NUMONFUNCS;
 extern void anim_PlaneToCornerDiagonalEmpty();
 extern void anim_PlaneToPlaneSimple();
 extern void anim_PlaneToOnSimple();
+extern void anim_PlaneToPlaneSlide();
 extern const char NUMPLANEFUNCS;
 
 //general funcs

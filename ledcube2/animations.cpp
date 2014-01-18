@@ -36,6 +36,7 @@ const char NUMOFFFUNCS = 1;
 AnimationFunction animFuncsPlane[] = {
 	&anim_PlaneToCornerDiagonalEmpty,
 	&anim_PlaneToPlaneSimple,
-	&anim_PlaneToOnSimple
+	&anim_PlaneToOnSimple,
+	&anim_PlaneToPlaneSlide
 };
-const char NUMPLANEFUNCS = 3;
+const char NUMPLANEFUNCS = 4;
