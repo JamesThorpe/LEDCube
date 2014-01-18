@@ -3,11 +3,22 @@
 
 void runCube() {
 
+	/* code for testing layer rotation
 	cube->SetPlaneXZ(0, true);
 	while (true) {
-	cube->RotateOuterLayers(Plane_x, true, Plane_z, 0);
-	delay(1000);
-	}
+		for (char x = 0; x < 7;x ++) {
+			cube->RotateOuterLayers(Plane_x, true, Plane_z, 0);
+			delay(40);
+		}
+		for (char x = 0; x < 7; x++) {
+			cube->RotateOuterLayers(Plane_y, true, Plane_z, 0);
+			delay(40);
+		}
+				for (char x = 0; x < 7;x ++) {
+	cube->RotateOuterLayers(Plane_z, false, Plane_z, 0);
+	delay(40);
+		}
+	}*/
 
 
 	AnimationFunction func;
