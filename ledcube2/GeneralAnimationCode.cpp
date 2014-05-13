@@ -18,7 +18,7 @@ void anim_Flash() {
   } 
 }
 
-void anim_ScrollText(char* Text, char speed) {
+void anim_ScrollText(char* Text, unsigned char speed) {
   char* c = Text;
   //Serial.println(Text);
   while (*c != 0) {
@@ -28,7 +28,7 @@ void anim_ScrollText(char* Text, char speed) {
       cube->ScrollOuterColumns(GetByteForCharacterColumn(*c, col));
       delay(speed);
     }
-    cube->ScrollOuterColumns(0);
+	cube->ScrollOuterColumns(0);
     delay(speed);
     c++; 
   }

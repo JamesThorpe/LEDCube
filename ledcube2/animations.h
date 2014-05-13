@@ -75,7 +75,7 @@ void anim_ScrollPlanes();
 void anim_PlaneMove(Planes startPlane, bool on, bool clear, bool stopShort);
 //void anim_CornerToCorner(bool xPos, bool yPos, bool zPos, bool clear, bool on);
 void anim_RandomLineScroll();
-void anim_ScrollText(char* Text, char speed);
+void anim_ScrollText(char* Text, unsigned char speed);
 void anim_Flash();
 void anim_CubeMove();
 
