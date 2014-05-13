@@ -12,3 +12,7 @@ void delay(int milli) {
 int random(int max) {
 	return rand()%max;
 }
+
+unsigned char pgm_read_byte_near(unsigned char *p) {
+	return *p;
+}

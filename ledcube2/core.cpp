@@ -1,25 +1,18 @@
 #include "core.h"
 
-
+bool isStarted = false;
 void runCube() {
-
-	/* code for testing layer rotation
-	cube->SetPlaneXZ(0, true);
-	while (true) {
-		for (char x = 0; x < 7;x ++) {
-			cube->RotateOuterLayers(Plane_x, true, Plane_z, 0);
-			delay(40);
+	if (!isStarted) {
+		isStarted = true;
+		for (char x = 2; x < 6; x++) {
+			for (char y = 2; y < 6; y++) {
+				cube->SetLed(x, y, 0, true);
+			}
 		}
-		for (char x = 0; x < 7; x++) {
-			cube->RotateOuterLayers(Plane_y, true, Plane_z, 0);
-			delay(40);
-		}
-				for (char x = 0; x < 7;x ++) {
-	cube->RotateOuterLayers(Plane_z, false, Plane_z, 0);
-	delay(40);
-		}
-	}*/
-
+		cube->ActivePlane = Plane_z;
+	}
+	anim_PlaneToPlaneSlide();
+	return;
 
 	AnimationFunction func;
 	switch(cube->State) {
@@ -40,27 +33,4 @@ void runCube() {
 	}
 
 	func();
-
-
-	/*
-	anim_ScrollText("En error has occurred\0");
- 
-	anim_CubeMove();
- anim_RandomLineScroll();
- 
- 
-  anim_ScrollPlanes();
-  
-  anim_CornerToCorner(true,true,true, false, true);
-  anim_CornerToCorner(true,true,true, true, false);
-  anim_CornerToCorner(true,true,true, false, false);
-
-  anim_ScrollText("En error has occurred\0");
-  anim_CornerToCorner(true,true,false, true, true);
-  anim_CornerToCorner(false,true,false, true, true);
-  anim_CornerToCorner(true,false,false, true, true);
-  anim_CornerToCorner(false,false,false, true, true);
-  anim_ScrollText("Object reference not set to an instance of an object\0");
-  //cube->SetPlaneXZ(0, true);
-anim_Flash(); */
 }
