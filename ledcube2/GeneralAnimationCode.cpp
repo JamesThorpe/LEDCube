@@ -9,15 +9,6 @@
 void anim_nullAnimation() {
 }
 
-void anim_Flash() {
-  for (int x =0;x<50;x++) {
-    cube->SetAll(false);
-    delay(20);
-    cube->SetAll(true);
-    delay(20);
-  } 
-}
-
 void anim_ScrollText(char* Text, unsigned char speed) {
   char* c = Text;
   //Serial.println(Text);
@@ -35,55 +26,6 @@ void anim_ScrollText(char* Text, unsigned char speed) {
   for (int x =0; x < 28;x++){
     cube->ScrollOuterColumns(0);
     delay(speed);
-  }
-}
-
-void anim_ScrollPlanes() {
-	cube->SetAll(false);
-	unsigned char count = 0;
-	do {
-		cube->SetPlaneXY(count, true);
-		delay(50);
-		cube->ClearAll();
-	} while (++count < 8);
-	
-	count = 0;
-	do {
-		cube->SetPlaneXZ(count, true);
-		delay(50);
-		cube->ClearAll();
-	} while(++count < 8);
-	count = 0;
-	do {
-		cube->SetPlaneYZ(count, true);
-		delay(50);
-		cube->ClearAll();
-	} while(++count < 8);
-	count = 0;
-	do {
-		cube->SetPlaneXY(count, true);
-		cube->SetPlaneXZ(count, true);
-		cube->SetPlaneYZ(count, true);
-		delay(50);
-		cube->ClearAll();
-	} while(++count < 8);
-}
-void anim_RandomLineScroll() {
-  char layer = 4;
-  char dir = 1;
-  cube->SetAll(false);
-  for (int count = 0; count < 400; count++)
-  {
-    if (random(6) < 4) {
-      layer += dir;
-    }
-    if (layer < 0) layer = 0;
-    if (layer > 7) layer = 7;
-    if (random(20) < 3) {
-      dir = 0 - dir; 
-    }
-    cube->ScrollOuterColumns(1<<layer);
-    delay(30);
   }
 }
 
@@ -480,23 +422,83 @@ Planes getOppositePlane(Planes plane) {
 		return Plane_z;
 	}
 }
-void anim_CubeMove() {
-  for (char x =0; x < 8; x++) {
-    cube->DrawCube(0,0,0,x+1, true);
-    delay(80); 
-  }
-  delay(500);
-  for (char x = -8; x < 0;x++) {
-    cube->DrawCube(7,7,7,x, true); 
-    delay(80);
-  }
-}
-
-
 
 unsigned char reverse(unsigned char b) {
    b = (b & 0xF0) >> 4 | (b & 0x0F) << 4;
    b = (b & 0xCC) >> 2 | (b & 0x33) << 2;
    b = (b & 0xAA) >> 1 | (b & 0x55) << 1;
    return b;
+}
+
+
+/*  Currently Unused  */
+void anim_ScrollPlanes() {
+	cube->SetAll(false);
+	unsigned char count = 0;
+	do {
+		cube->SetPlaneXY(count, true);
+		delay(50);
+		cube->ClearAll();
+	} while (++count < 8);
+
+	count = 0;
+	do {
+		cube->SetPlaneXZ(count, true);
+		delay(50);
+		cube->ClearAll();
+	} while (++count < 8);
+	count = 0;
+	do {
+		cube->SetPlaneYZ(count, true);
+		delay(50);
+		cube->ClearAll();
+	} while (++count < 8);
+	count = 0;
+	do {
+		cube->SetPlaneXY(count, true);
+		cube->SetPlaneXZ(count, true);
+		cube->SetPlaneYZ(count, true);
+		delay(50);
+		cube->ClearAll();
+	} while (++count < 8);
+}
+
+void anim_RandomLineScroll() {
+	char layer = 4;
+	char dir = 1;
+	cube->SetAll(false);
+	for (int count = 0; count < 400; count++)
+	{
+		if (random(6) < 4) {
+			layer += dir;
+		}
+		if (layer < 0) layer = 0;
+		if (layer > 7) layer = 7;
+		if (random(20) < 3) {
+			dir = 0 - dir;
+		}
+		cube->ScrollOuterColumns(1 << layer);
+		delay(30);
+	}
+}
+
+void anim_Flash() {
+	for (int x = 0; x<50; x++) {
+		cube->SetAll(false);
+		delay(20);
+		cube->SetAll(true);
+		delay(20);
+	}
+}
+
+void anim_CubeMove() {
+	for (char x = 0; x < 8; x++) {
+		cube->DrawCube(0, 0, 0, x + 1, true);
+		delay(80);
+	}
+	delay(500);
+	for (char x = -8; x < 0; x++) {
+		cube->DrawCube(7, 7, 7, x, true);
+		delay(80);
+	}
 }

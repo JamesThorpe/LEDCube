@@ -2,17 +2,17 @@
 
 bool isStarted = false;
 void runCube() {
-	if (!isStarted) {
-		isStarted = true;
-		for (char x = 2; x < 6; x++) {
-			for (char y = 2; y < 6; y++) {
-				cube->SetLed(x, y, 0, true);
-			}
-		}
-		cube->ActivePlane = Plane_z;
-	}
-	anim_PlaneToPlaneSlide();
-	return;
+	//if (!isStarted) {
+	//	isStarted = true;
+	//	for (char x = 2; x < 6; x++) {
+	//		for (char y = 2; y < 6; y++) {
+	//			cube->SetLed(x, y, 0, true);
+	//		}
+	//	}
+	//	cube->ActivePlane = Plane_z;
+	//}
+	//anim_PlaneToPlaneSlide();
+	//return;
 
 	AnimationFunction func;
 	switch(cube->State) {
