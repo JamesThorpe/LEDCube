@@ -14,6 +14,9 @@ void runCube() {
 	//anim_PlaneToPlaneSlide();
 	//return;
 
+	anim_OffToOffText();
+	return;
+
 	AnimationFunction func;
 	switch(cube->State) {
 	case State_corner:
