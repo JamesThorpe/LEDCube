@@ -1,20 +1,25 @@
-#ifndef VSBUILD
-#include "Arduino.h"
-#else
-#include <Windows.h>
-#endif
 #include "font.h"
-
-unsigned char GetByteForCharacterColumn(bool data[FONT_HEIGHT][FONT_WIDTH], char column) {
+/*
+unsigned char GetByteForCharacterColumn(byte data[FONT_WIDTH], char column) {
   unsigned char ret = 0;
   for (char x = 0; x < FONT_HEIGHT; x++) {
     ret |= data[x][column] << (7-x);  
   }
   return ret;
-}
+}*/
 unsigned char GetByteForCharacterColumn(char chr, char column) {
   struct font_char f = GetFontDataForCharacter(chr);
-  return GetByteForCharacterColumn(f.f, column);
+  return f.f[column];
+  //return GetByteForCharacterColumn(f.f, column);
+}
+
+void populateStruct(struct font_char *p, prog_uchar c[])
+{
+	p->f[0] = pgm_read_byte_near(&c[0]);
+	p->f[1] = pgm_read_byte_near(&c[1]);
+	p->f[2] = pgm_read_byte_near(&c[2]);
+	p->f[3] = pgm_read_byte_near(&c[3]);
+	p->f[4] = pgm_read_byte_near(&c[4]);
 }
 
 struct font_char GetFontDataForCharacter(char chr) {
@@ -22,108 +27,112 @@ struct font_char GetFontDataForCharacter(char chr) {
   switch (chr) {
     case 'A':
     case 'a':
-      memcpy(&ret.f, &FONT_A[0][0], sizeof(FONT_A));
-      break;
+		populateStruct(&ret, FONT_A);
+		break;
+	  break;
     case 'B':
     case 'b':
-      memcpy(&ret.f, &FONT_B[0][0], sizeof(FONT_B));
+		populateStruct(&ret, FONT_B);
       break;
     case 'C':
     case 'c':
-      memcpy(&ret.f, &FONT_C[0][0], sizeof(FONT_C));
-      break;
+		populateStruct(&ret, FONT_C);
+	  break;
     case 'D':
     case 'd':
-      memcpy(&ret.f, &FONT_D[0][0], sizeof(FONT_D));
+		populateStruct(&ret, FONT_D);
       break;
     case 'E':
     case 'e':
-      memcpy(&ret.f, &FONT_E[0][0], sizeof(FONT_E));
+		populateStruct(&ret, FONT_E);
       break;
     case 'F':
     case 'f':
-      memcpy(&ret.f, &FONT_F[0][0], sizeof(FONT_F));
+		populateStruct(&ret, FONT_F);
       break;
     case 'G':
     case 'g':
-      memcpy(&ret.f, &FONT_G[0][0], sizeof(FONT_G));
+		populateStruct(&ret, FONT_G);
       break;
     case 'H':
     case 'h':
-      memcpy(&ret.f, &FONT_H[0][0], sizeof(FONT_H));
+		populateStruct(&ret, FONT_H);
       break;
     case 'I':
     case 'i':
-      memcpy(&ret.f, &FONT_I[0][0], sizeof(FONT_I));
+		populateStruct(&ret, FONT_I);
       break;
     case 'J':
     case 'j':
-      memcpy(&ret.f, &FONT_J[0][0], sizeof(FONT_J));
+		populateStruct(&ret, FONT_J);
       break;
     case 'K':
     case 'k':
-      memcpy(&ret.f, &FONT_K[0][0], sizeof(FONT_K));
+		populateStruct(&ret, FONT_K);
       break;
     case 'L':
     case 'l':
-      memcpy(&ret.f, &FONT_L[0][0], sizeof(FONT_L));
+		populateStruct(&ret, FONT_L);
       break;
     case 'M':
     case 'm':
-      memcpy(&ret.f, &FONT_M[0][0], sizeof(FONT_M));
+		populateStruct(&ret, FONT_M);
       break;
     case 'N':
     case 'n':
-      memcpy(&ret.f, &FONT_N[0][0], sizeof(FONT_N));
+		populateStruct(&ret, FONT_N);
       break;
     case 'O':
     case 'o':
-      memcpy(&ret.f, &FONT_O[0][0], sizeof(FONT_O));
+		populateStruct(&ret, FONT_O);
       break;
     case 'P':
     case 'p':
-      memcpy(&ret.f, &FONT_P[0][0], sizeof(FONT_P));
+		populateStruct(&ret, FONT_P);
       break;
     case 'Q':
     case 'q':
-      memcpy(&ret.f, &FONT_Q[0][0], sizeof(FONT_Q));
+		populateStruct(&ret, FONT_Q);
       break;
     case 'R':
     case 'r':
-      memcpy(&ret.f, &FONT_R[0][0], sizeof(FONT_R));
+		populateStruct(&ret, FONT_R);
       break;
     case 'S':
     case 's':
-      memcpy(&ret.f, &FONT_S[0][0], sizeof(FONT_S));
+		populateStruct(&ret, FONT_S);
       break;
     case 'T':
     case 't':
-      memcpy(&ret.f, &FONT_T[0][0], sizeof(FONT_T));
+		populateStruct(&ret, FONT_T);
       break;
     case 'U':
     case 'u':
-      memcpy(&ret.f, &FONT_U[0][0], sizeof(FONT_U));
+		populateStruct(&ret, FONT_U);
       break;
     case 'V':
     case 'v':
-      memcpy(&ret.f, &FONT_V[0][0], sizeof(FONT_V));
+		populateStruct(&ret, FONT_V);
       break;
     case 'W':
     case 'w':
-      memcpy(&ret.f, &FONT_W[0][0], sizeof(FONT_W));
+		populateStruct(&ret, FONT_W);
       break;
     case 'X':
     case 'x':
-      memcpy(&ret.f, &FONT_X[0][0], sizeof(FONT_X));
+		populateStruct(&ret, FONT_X);
       break;
     case 'Y':
     case 'y':
-      memcpy(&ret.f, &FONT_Y[0][0], sizeof(FONT_Y));
+		populateStruct(&ret, FONT_Y);
       break;
     case 'Z':
     case 'z':
-      memcpy(&ret.f, &FONT_Z[0][0], sizeof(FONT_Z));
-      break;
+		populateStruct(&ret, FONT_Z);
+		break;
+	case ' ':
+		populateStruct(&ret, FONT_SPACE);
+		break;/*
     case '0':
       memcpy(&ret.f, &FONT_0[0][0], sizeof(FONT_0));
       break;
@@ -159,23 +168,21 @@ struct font_char GetFontDataForCharacter(char chr) {
       break;
     case '.':
       memcpy(&ret.f, &FONT_STOP[0][0], sizeof(FONT_STOP));
-      break;
+      break;*/
     case '!':
-      memcpy(&ret.f, &FONT_EXC[0][0], sizeof(FONT_EXC));
+     populateStruct(&ret, FONT_EXC);
       break;
-    case ' ':
-      memcpy(&ret.f, &FONT_SPACE[0][0], sizeof(FONT_SPACE));
-      break;
+	  /*
     default:
       memcpy(&ret.f, &FONT_UNKNOWN[0][0], sizeof(FONT_UNKNOWN));
       break;
-   
+   */
   }
   return ret;
 }
 
 #ifndef FONTFACE2
-bool FONT_A[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_A[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0},
 	{1,0,1},
 	{1,1,1},
@@ -183,7 +190,7 @@ bool FONT_A[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1}
 };
 
-bool FONT_B[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_B[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,0},
 	{1,0,1},
 	{1,1,0},
@@ -191,7 +198,7 @@ bool FONT_B[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,0}
 };
 
-bool FONT_C[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_C[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,1},
 	{1,0,0},
 	{1,0,0},
@@ -199,7 +206,7 @@ bool FONT_C[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,1}
 };
 
-bool FONT_D[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_D[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,0},
 	{1,0,1},
 	{1,0,1},
@@ -207,7 +214,7 @@ bool FONT_D[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,0}
 };
 
-bool FONT_E[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_E[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1},
 	{1,0,0},
 	{1,1,1},
@@ -215,7 +222,7 @@ bool FONT_E[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1}
 };
 
-bool FONT_F[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_F[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1},
 	{1,0,0},
 	{1,1,0},
@@ -223,7 +230,7 @@ bool FONT_F[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0}
 };
 
-bool FONT_G[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_G[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,1},
 	{1,0,0},
 	{1,0,1},
@@ -231,7 +238,7 @@ bool FONT_G[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,1}
 };
 
-bool FONT_H[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_H[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1},
 	{1,0,1},
 	{1,1,1},
@@ -239,7 +246,7 @@ bool FONT_H[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1}
 };
 
-bool FONT_I[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_I[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1},
 	{0,1,0},
 	{0,1,0},
@@ -247,7 +254,7 @@ bool FONT_I[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1}
 };
 
-bool FONT_J[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_J[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,1},
 	{0,0,1},
 	{0,0,1},
@@ -255,7 +262,7 @@ bool FONT_J[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,0}
 };
 
-bool FONT_K[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_K[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1},
 	{1,0,1},
 	{1,1,0},
@@ -263,7 +270,7 @@ bool FONT_K[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1}
 };
 
-bool FONT_L[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_L[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0},
 	{1,0,0},
 	{1,0,0},
@@ -271,7 +278,7 @@ bool FONT_L[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1}
 };
 
-bool FONT_M[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_M[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1},
 	{1,1,1},
 	{1,0,1},
@@ -279,7 +286,7 @@ bool FONT_M[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1}
 };
 
-bool FONT_N[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_N[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1},
 	{1,1,1},
 	{1,1,1},
@@ -287,21 +294,21 @@ bool FONT_N[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1}
 };
 
-bool FONT_O[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_O[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0},
 	{1,0,1},
 	{1,0,1},
 	{1,0,1},
 	{0,1,0}
 };
-bool FONT_P[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_P[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,0},
 	{1,0,1},
 	{1,1,0},
 	{1,0,0},
 	{1,0,0}
 };
-bool FONT_Q[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_Q[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0},
 	{1,0,1},
 	{1,0,1},
@@ -309,70 +316,70 @@ bool FONT_Q[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1}
 };
 
-bool FONT_R[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_R[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,0},
 	{1,0,1},
 	{1,1,0},
 	{1,0,1},
 	{1,0,1}
 };
-bool FONT_S[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_S[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,1},
 	{1,0,0},
 	{0,1,0},
 	{0,0,1},
 	{1,1,0}
 };
-bool FONT_T[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_T[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1},
 	{0,1,0},
 	{0,1,0},
 	{0,1,0},
 	{0,1,0}
 };
-bool FONT_U[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_U[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1},
 	{1,0,1},
 	{1,0,1},
 	{1,0,1},
 	{1,1,1}
 };
-bool FONT_V[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_V[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1},
 	{1,0,1},
 	{1,0,1},
 	{1,0,1},
 	{0,1,0}
 };
-bool FONT_W[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_W[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1},
 	{1,0,1},
 	{1,0,1},
 	{1,1,1},
 	{1,0,1}
 };
-bool FONT_X[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_X[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1},
 	{1,0,1},
 	{0,1,0},
 	{1,0,1},
 	{1,0,1}
 };
-bool FONT_Y[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_Y[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1},
 	{1,0,1},
 	{0,1,0},
 	{0,1,0},
 	{0,1,0}
 };
-bool FONT_Z[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_Z[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1},
 	{0,0,1},
 	{0,1,0},
 	{1,0,0},
 	{1,1,1}
 };
-bool FONT_SPACE[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_SPACE[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0},
 	{0,0,0},
 	{0,0,0},
@@ -380,7 +387,7 @@ bool FONT_SPACE[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0}
 };
 
-bool FONT_0[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_0[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0},
 	{1,0,1},
 	{1,1,1},
@@ -388,42 +395,42 @@ bool FONT_0[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0}
 };
 
-bool FONT_1[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_1[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0},
 	{1,1,0},
 	{0,1,0},
 	{0,1,0},
 	{1,1,1}
 };
-bool FONT_2[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_2[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,0},
 	{0,0,1},
 	{0,1,0},
 	{1,0,0},
 	{1,1,1}
 };
-bool FONT_3[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_3[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,0},
 	{0,0,1},
 	{1,1,0},
 	{0,0,1},
 	{1,1,0}
 };
-bool FONT_4[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_4[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1},
 	{1,0,1},
 	{0,1,1},
 	{0,0,1},
 	{0,0,1}
 };
-bool FONT_5[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_5[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1},
 	{1,0,0},
 	{1,1,0},
 	{0,0,1},
 	{1,1,0}
 };
-bool FONT_6[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_6[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,1},
 	{1,0,0},
 	{1,1,0},
@@ -431,7 +438,7 @@ bool FONT_6[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0}
 };
 
-bool FONT_7[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_7[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,1},
 	{0,0,1},
 	{0,1,0},
@@ -439,7 +446,7 @@ bool FONT_7[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0}
 };
 
-bool FONT_8[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_8[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0},
 	{1,0,1},
 	{0,1,0},
@@ -447,7 +454,7 @@ bool FONT_8[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0}
 };
 
-bool FONT_9[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_9[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0},
 	{1,0,1},
 	{0,1,1},
@@ -455,7 +462,7 @@ bool FONT_9[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,1,0}
 };
 
-bool FONT_HYP[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_HYP[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0},
 	{0,0,0},
 	{1,1,1},
@@ -463,7 +470,7 @@ bool FONT_HYP[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0}
 };
 
-bool FONT_STOP[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_STOP[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0},
 	{0,0,0},
 	{0,0,0},
@@ -471,7 +478,7 @@ bool FONT_STOP[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0}
 };
 
-bool FONT_EXC[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_EXC[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0},
 	{0,1,0},
 	{0,1,0},
@@ -479,7 +486,7 @@ bool FONT_EXC[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0}
 };
 
-bool FONT_UNKNOWN[FONT_HEIGHT][FONT_WIDTH] = {
+const bool FONT_UNKNOWN[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1},
 	{0,1,0},
 	{1,0,1},
@@ -488,7 +495,8 @@ bool FONT_UNKNOWN[FONT_HEIGHT][FONT_WIDTH] = {
 };
 #else
 
-bool FONT_A[FONT_HEIGHT][FONT_WIDTH] = {
+PROGMEM prog_uchar FONT_A[FONT_WIDTH] = {0x7F, 0x90, 0x90, 0x90, 0x7F };
+/*
 	{0,1,1,1,0},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -497,8 +505,9 @@ bool FONT_A[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,0,0,0,1},
 	{1,0,0,0,1}
-};
-bool FONT_B[FONT_HEIGHT][FONT_WIDTH] = {
+*/
+PROGMEM prog_uchar FONT_B[FONT_WIDTH] = { 0xFF, 0x91, 0x91, 0x91, 0x6E };
+/*
 	{1,1,1,1,0},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -507,8 +516,9 @@ bool FONT_B[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,0,0,0,1},
 	{1,1,1,1,0}
-};
-bool FONT_C[FONT_HEIGHT][FONT_WIDTH] = {
+*/
+PROGMEM prog_uchar FONT_C[FONT_WIDTH] = { 0x7E, 0x81, 0x81, 0x81, 0x81 };
+/*
 	{0,1,1,1,1},
 	{1,0,0,0,0},
 	{1,0,0,0,0},
@@ -517,8 +527,9 @@ bool FONT_C[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,0},
 	{1,0,0,0,0},
 	{0,1,1,1,1}
-};
-bool FONT_D[FONT_HEIGHT][FONT_WIDTH] = {
+*/
+PROGMEM prog_uchar FONT_D[FONT_WIDTH] = { 0xFF, 0x81, 0x81, 0x81, 0x7E };
+/*
 	{1,1,1,1,0},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -527,8 +538,9 @@ bool FONT_D[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,0,0,0,1},
 	{1,1,1,1,0}
-};
-bool FONT_E[FONT_HEIGHT][FONT_WIDTH] = {
+*/
+PROGMEM prog_uchar FONT_E[FONT_WIDTH] = { 0xFF, 0x91, 0x91, 0x81, 0x81 };
+/*
 	{1,1,1,1,1},
 	{1,0,0,0,0},
 	{1,0,0,0,0},
@@ -537,8 +549,9 @@ bool FONT_E[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,0},
 	{1,0,0,0,0},
 	{1,1,1,1,1}
-};
-bool FONT_F[FONT_HEIGHT][FONT_WIDTH] = {
+*/
+PROGMEM prog_uchar FONT_F[FONT_WIDTH] = { 0xFF, 0x90, 0x90, 0x80, 0x80 };
+/*
 	{1,1,1,1,1},
 	{1,0,0,0,0},
 	{1,0,0,0,0},
@@ -547,8 +560,9 @@ bool FONT_F[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,0},
 	{1,0,0,0,0},
 	{1,0,0,0,0}
-};
-bool FONT_G[FONT_HEIGHT][FONT_WIDTH] = {
+*/
+PROGMEM prog_uchar FONT_G[FONT_WIDTH] = { 0x7E, 0x81, 0x91, 0x91, 0x9E };
+/*
 	{0,1,1,1,1},
 	{1,0,0,0,0},
 	{1,0,0,0,0},
@@ -557,8 +571,9 @@ bool FONT_G[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,0,0,0,1},
 	{0,1,1,1,0}
-};
-bool FONT_H[FONT_HEIGHT][FONT_WIDTH] = {
+*/
+PROGMEM prog_uchar FONT_H[FONT_WIDTH] = { 0xFF, 0x10, 0x10, 0x10, 0xFF };
+/*
 	{1,0,0,0,1},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -567,9 +582,10 @@ bool FONT_H[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,0,0,0,1},
 	{1,0,0,0,1}
-};
-bool FONT_I[FONT_HEIGHT][FONT_WIDTH] = {
-	{1,1,1,1,1},
+*/
+PROGMEM prog_uchar FONT_I[FONT_WIDTH] = { 0x81, 0x81, 0xFF, 0x81, 0x81 };
+/*
+    {1,1,1,1,1},
 	{0,0,1,0,0},
 	{0,0,1,0,0},
 	{0,0,1,0,0},
@@ -577,8 +593,9 @@ bool FONT_I[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,1,0,0},
 	{0,0,1,0,0},
 	{1,1,1,1,1}
-};
-bool FONT_J[FONT_HEIGHT][FONT_WIDTH] = {
+*/
+PROGMEM prog_uchar FONT_J[FONT_WIDTH] = { 0x2, 0x1, 0x81, 0x81, 0xFE };
+/*
 	{0,0,1,1,1},
 	{0,0,0,0,1},
 	{0,0,0,0,1},
@@ -587,8 +604,9 @@ bool FONT_J[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0,0,1},
 	{1,0,0,0,1},
 	{0,1,1,1,0}
-};
-bool FONT_K[FONT_HEIGHT][FONT_WIDTH] = {
+*/
+PROGMEM prog_uchar FONT_K[FONT_WIDTH] = { 0xFF, 0x10, 0x28, 0x44, 0x83 };
+/*
 	{1,0,0,0,1},
 	{1,0,0,1,0},
 	{1,0,1,0,0},
@@ -597,8 +615,9 @@ bool FONT_K[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,1,0},
 	{1,0,0,0,1},
 	{1,0,0,0,1}
-};
-bool FONT_L[FONT_HEIGHT][FONT_WIDTH] = {
+*/
+PROGMEM prog_uchar FONT_L[FONT_WIDTH] = { 0xFF, 0x1, 0x1, 0x1, 0x1 };
+/*
 	{1,0,0,0,0},
 	{1,0,0,0,0},
 	{1,0,0,0,0},
@@ -607,8 +626,9 @@ bool FONT_L[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,0},
 	{1,0,0,0,0},
 	{1,1,1,1,1}
-};
-bool FONT_M[FONT_HEIGHT][FONT_WIDTH] = {
+};*/
+PROGMEM prog_uchar FONT_M[FONT_WIDTH] = { 0xFF, 0x40, 0x20, 0x40, 0xFF };
+/*
 	{1,0,0,0,1},
 	{1,1,0,1,1},
 	{1,0,1,0,1},
@@ -617,8 +637,9 @@ bool FONT_M[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,0,0,0,1},
 	{1,0,0,0,1}
-};
-bool FONT_N[FONT_HEIGHT][FONT_WIDTH] = {
+*/
+PROGMEM prog_uchar FONT_N[FONT_WIDTH] = { 0xFF, 0x40, 0x20, 0x10, 0xFF };
+/*
 	{1,0,0,0,1},
 	{1,1,0,0,1},
 	{1,0,1,0,1},
@@ -627,8 +648,9 @@ bool FONT_N[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,0,0,0,1},
 	{1,0,0,0,1}
-};
-bool FONT_O[FONT_HEIGHT][FONT_WIDTH] = {
+*/
+PROGMEM prog_uchar FONT_O[FONT_WIDTH] = { 0x7E, 0x81, 0x81, 0x81, 0x7E };
+/*
 	{0,1,1,1,0},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -637,8 +659,9 @@ bool FONT_O[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,0,0,0,1},
 	{0,1,1,1,0}
-};
-bool FONT_P[FONT_HEIGHT][FONT_WIDTH] = {
+*/
+PROGMEM prog_uchar FONT_P[FONT_WIDTH] = { 0xFF, 0x90, 0x90, 0x90, 0x60 };
+/*
 	{1,1,1,1,0},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -647,8 +670,9 @@ bool FONT_P[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,0},
 	{1,0,0,0,0},
 	{1,0,0,0,0}
-};
-bool FONT_Q[FONT_HEIGHT][FONT_WIDTH] = {
+*/
+PROGMEM prog_uchar FONT_Q[FONT_WIDTH] = { 0x7E, 0x81, 0x85, 0x82, 0x7D };
+/*
 	{0,1,1,1,0},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -657,8 +681,9 @@ bool FONT_Q[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1,0,1},
 	{1,0,0,1,0},
 	{0,1,1,0,1}
-};
-bool FONT_R[FONT_HEIGHT][FONT_WIDTH] = {
+*/
+PROGMEM prog_uchar FONT_R[FONT_WIDTH] = { 0xFF, 0x90, 0x90, 0x98, 0x67 };
+/*
 	{1,1,1,1,0},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -667,8 +692,9 @@ bool FONT_R[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,0,0,0,1},
 	{1,0,0,0,1}
-};
-bool FONT_S[FONT_HEIGHT][FONT_WIDTH] = {
+*/
+PROGMEM prog_uchar FONT_S[FONT_WIDTH] = { 0x62, 0x91, 0x91, 0x91, 0x8E };
+/*
 	{0,1,1,1,1},
 	{1,0,0,0,0},
 	{1,0,0,0,0},
@@ -677,8 +703,9 @@ bool FONT_S[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0,0,1},
 	{1,0,0,0,1},
 	{0,1,1,1,0}
-};
-bool FONT_T[FONT_HEIGHT][FONT_WIDTH] = {
+*/
+PROGMEM prog_uchar FONT_T[FONT_WIDTH] = { 0x80, 0x80, 0xFF, 0x80, 0x80 };
+/*
 	{1,1,1,1,1},
 	{0,0,1,0,0},
 	{0,0,1,0,0},
@@ -687,8 +714,9 @@ bool FONT_T[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,1,0,0},
 	{0,0,1,0,0},
 	{0,0,1,0,0}
-};
-bool FONT_U[FONT_HEIGHT][FONT_WIDTH] = {
+*/
+PROGMEM prog_uchar FONT_U[FONT_WIDTH] = { 0xFE, 0x1, 0x1, 0x1, 0xFE };
+/*
 	{1,0,0,0,1},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -697,8 +725,9 @@ bool FONT_U[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,0,0,0,1},
 	{0,1,1,1,0}
-};
-bool FONT_V[FONT_HEIGHT][FONT_WIDTH] = {
+*/
+PROGMEM prog_uchar FONT_V[FONT_WIDTH] = { 0xFC, 0x2, 0x1, 0x2, 0xFC };
+/*
 	{1,0,0,0,1},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -707,8 +736,9 @@ bool FONT_V[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{0,1,0,1,0},
 	{0,0,1,0,0}
-};
-bool FONT_W[FONT_HEIGHT][FONT_WIDTH] = {
+*/
+PROGMEM prog_uchar FONT_W[FONT_WIDTH] = { 0xFF, 0x2, 0x4, 0x2, 0xFF };
+/*
 	{1,0,0,0,1},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -717,8 +747,9 @@ bool FONT_W[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,1,0,1},
 	{1,1,0,1,1},
 	{1,0,0,0,1}
-};
-bool FONT_X[FONT_HEIGHT][FONT_WIDTH] = {
+*/
+PROGMEM prog_uchar FONT_X[FONT_WIDTH] = { 0xC7, 0x28, 0x10, 0x28, 0xC7 };
+/*
 	{1,0,0,0,1},
 	{1,0,0,0,1},
 	{0,1,0,1,0},
@@ -727,8 +758,9 @@ bool FONT_X[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{1,0,0,0,1},
 	{1,0,0,0,1}
-};
-bool FONT_Y[FONT_HEIGHT][FONT_WIDTH] = {
+*/
+PROGMEM prog_uchar FONT_Y[FONT_WIDTH] = { 0xC0, 0x20, 0x1F, 0x20, 0xC0 };
+/*
 	{1,0,0,0,1},
 	{1,0,0,0,1},
 	{0,1,0,1,0},
@@ -737,8 +769,9 @@ bool FONT_Y[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,1,0,0},
 	{0,0,1,0,0},
 	{0,0,1,0,0}
-};
-bool FONT_Z[FONT_HEIGHT][FONT_WIDTH] = {
+*/
+PROGMEM prog_uchar FONT_Z[FONT_WIDTH] = { 0x87, 0x89, 0x91, 0xA1, 0xC1 };
+/*
 	{1,1,1,1,1},
 	{0,0,0,0,1},
 	{0,0,0,1,0},
@@ -747,8 +780,9 @@ bool FONT_Z[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,0},
 	{1,0,0,0,0},
 	{1,1,1,1,1}
-};
-bool FONT_SPACE[FONT_HEIGHT][FONT_WIDTH] = {
+*/
+PROGMEM prog_uchar FONT_SPACE[FONT_WIDTH] = { 0x00, 0x00, 0x00, 0x00 };
+/*
 	{0,0,0,0,0},
 	{0,0,0,0,0},
 	{0,0,0,0,0},
@@ -757,8 +791,9 @@ bool FONT_SPACE[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0,0,0},
 	{0,0,0,0,0},
 	{0,0,0,0,0}
-};
-bool FONT_0[FONT_HEIGHT][FONT_WIDTH] = {
+};*/
+/*
+PROGMEM prog_uchar FONT_0[FONT_WIDTH] = {
 	{0,1,1,1,0},
 	{1,0,0,0,1},
 	{1,0,0,1,1},
@@ -768,7 +803,7 @@ bool FONT_0[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{0,1,1,1,0}
 };
-bool FONT_1[FONT_HEIGHT][FONT_WIDTH] = {
+PROGMEM prog_uchar FONT_1[FONT_WIDTH] = {
 	{0,0,1,0,0},
 	{0,1,1,0,0},
 	{0,0,1,0,0},
@@ -778,7 +813,7 @@ bool FONT_1[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,1,0,0},
 	{1,1,1,1,1}
 };
-bool FONT_2[FONT_HEIGHT][FONT_WIDTH] = {
+PROGMEM prog_uchar FONT_2[FONT_WIDTH] = {
 	{0,1,1,1,0},
 	{1,0,0,0,1},
 	{0,0,0,1,0},
@@ -788,7 +823,7 @@ bool FONT_2[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,0},
 	{1,1,1,1,1}
 };
-bool FONT_3[FONT_HEIGHT][FONT_WIDTH] = {
+PROGMEM prog_uchar FONT_3[FONT_WIDTH] = {
 	{1,1,1,1,0},
 	{0,0,0,0,1},
 	{0,0,0,0,1},
@@ -798,7 +833,7 @@ bool FONT_3[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0,0,1},
 	{1,1,1,1,0}
 };
-bool FONT_4[FONT_HEIGHT][FONT_WIDTH] = {
+PROGMEM prog_uchar FONT_4[FONT_WIDTH] = {
 	{0,0,0,1,0},
 	{0,0,1,1,0},
 	{0,1,0,1,0},
@@ -808,7 +843,7 @@ bool FONT_4[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0,1,0},
 	{0,0,0,1,0}
 };
-bool FONT_5[FONT_HEIGHT][FONT_WIDTH] = {
+PROGMEM prog_uchar FONT_5[FONT_WIDTH] = {
 	{1,1,1,1,1},
 	{1,0,0,0,0},
 	{1,0,0,0,0},
@@ -818,7 +853,7 @@ bool FONT_5[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0,0,1},
 	{1,1,1,1,0}
 };
-bool FONT_6[FONT_HEIGHT][FONT_WIDTH] = {
+PROGMEM prog_uchar FONT_6[FONT_WIDTH] = {
 	{0,1,1,1,0},
 	{1,0,0,0,1},
 	{1,0,0,0,0},
@@ -828,7 +863,7 @@ bool FONT_6[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{0,1,1,1,0}
 };
-bool FONT_7[FONT_HEIGHT][FONT_WIDTH] = {
+PROGMEM prog_uchar FONT_7[FONT_WIDTH] = {
 	{1,1,1,1,1},
 	{0,0,0,0,1},
 	{0,0,0,1,0},
@@ -838,7 +873,7 @@ bool FONT_7[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,1,0,0},
 	{0,0,1,0,0}
 };
-bool FONT_8[FONT_HEIGHT][FONT_WIDTH] = {
+PROGMEM prog_uchar FONT_8[FONT_WIDTH] = {
 	{0,1,1,1,0},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -848,7 +883,7 @@ bool FONT_8[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{0,1,1,1,0}
 };
-bool FONT_9[FONT_HEIGHT][FONT_WIDTH] = {
+PROGMEM prog_uchar FONT_9[FONT_WIDTH] = {
 	{0,1,1,1,0},
 	{1,0,0,0,1},
 	{1,0,0,0,1},
@@ -858,7 +893,7 @@ bool FONT_9[FONT_HEIGHT][FONT_WIDTH] = {
 	{1,0,0,0,1},
 	{0,1,1,1,0}
 };
-bool FONT_HYP[FONT_HEIGHT][FONT_WIDTH] = {
+PROGMEM prog_uchar FONT_HYP[FONT_WIDTH] = {
 	{0,0,0,0,0},
 	{0,0,0,0,0},
 	{0,0,0,0,0},
@@ -868,7 +903,7 @@ bool FONT_HYP[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0,0,0},
 	{0,0,0,0,0}
 };
-bool FONT_STOP[FONT_HEIGHT][FONT_WIDTH] = {
+PROGMEM prog_uchar FONT_STOP[FONT_WIDTH] = {
 	{0,0,0,0,0},
 	{0,0,0,0,0},
 	{0,0,0,0,0},
@@ -877,8 +912,9 @@ bool FONT_STOP[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0,0,0},
 	{0,0,0,0,0},
 	{1,0,0,0,0}
-};
-bool FONT_EXC[FONT_HEIGHT][FONT_WIDTH] = {
+};*/
+PROGMEM prog_uchar FONT_EXC[FONT_WIDTH] = { 0x00, 0x00, 0xFD, 0x00, 0x00 };
+/*
 	{0,0,1,0,0},
 	{0,0,1,0,0},
 	{0,0,1,0,0},
@@ -887,8 +923,10 @@ bool FONT_EXC[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,1,0,0},
 	{0,0,0,0,0},
 	{0,0,1,0,0}
-};
-bool FONT_UNKNOWN[FONT_HEIGHT][FONT_WIDTH] = {
+*/
+
+/*
+PROGMEM prog_uchar FONT_UNKNOWN[FONT_WIDTH] = {
 	{0,1,0,1,0},
 	{1,0,1,0,1},
 	{0,1,0,1,0},
@@ -898,7 +936,7 @@ bool FONT_UNKNOWN[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,1,0,1,0},
 	{1,0,1,0,1}
 };
-bool FONT_[FONT_HEIGHT][FONT_WIDTH] = {
+PROGMEM prog_uchar FONT_[FONT_WIDTH] = {
 	{0,0,0,0,0},
 	{0,0,0,0,0},
 	{0,0,0,0,0},
@@ -908,4 +946,5 @@ bool FONT_[FONT_HEIGHT][FONT_WIDTH] = {
 	{0,0,0,0,0},
 	{0,0,0,0,0}
 };
+*/
 #endif

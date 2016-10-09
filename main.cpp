@@ -19,56 +19,39 @@ using namespace std;
 #define PIN_LAYERENABLE 4
 
 Cube *cube;
+
 void init();
 void printcube();
-void clear_screen(bool);
+void clear_screen();
 
 void main() {
 	init();	
+	
 	while(true)
-	runCube();
+		runCube();
 }
 
 DWORD WINAPI renderThread(LPVOID lpParam) {
 	system("cls");
-	//bool first = true;
 	while(true) {
 		printcube();
 		Sleep(33);
-		/*if (first) {
-			clear_screen(true);
-			first = false;
-		}*/
 	}
 }
 
 void init() {
 	cube = new Cube();
+
 	DWORD threadId;
 	CreateThread(NULL, 0, renderThread, NULL, 0, &threadId	);
 }
 
-void clear_screen ( bool all )
+void clear_screen ( )
 {
-  DWORD n;                         /* Number of characters written */
-  DWORD size;                      /* number of visible characters */
   COORD coord = {0};               /* Top left screen position */
-  CONSOLE_SCREEN_BUFFER_INFO csbi;
 
   /* Get a handle to the console */
   HANDLE h = GetStdHandle ( STD_OUTPUT_HANDLE );
-
-  GetConsoleScreenBufferInfo ( h, &csbi );
-
-  if (all) {
-  /* Find the number of characters to overwrite */
-  size = csbi.dwSize.X * csbi.dwSize.Y;
-
-  /* Overwrite the screen buffer with whitespace */
-  FillConsoleOutputCharacter ( h, TEXT ( ' ' ), size, coord, &n );
-  GetConsoleScreenBufferInfo ( h, &csbi );
-  FillConsoleOutputAttribute ( h, csbi.wAttributes, size, coord, &n );
-  }
 
   /* Reset the cursor to the top left position */
   SetConsoleCursorPosition ( h, coord );
@@ -154,7 +137,7 @@ void printcube() {
 		s->append("\n");
 	}
 
-	clear_screen(false);
+	clear_screen();
 	cout << s->c_str();
 	delete s;
 
