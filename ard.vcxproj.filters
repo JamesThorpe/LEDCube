@@ -33,6 +33,21 @@
     <ClCompile Include="ledcube2\core.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ledcube2\GeneralAnimationCode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ledcube2\AnimationsFromOff.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ledcube2\AnimationsFromCorner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ledcube2\AnimationsFromOn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ledcube2\AnimationsFromPlane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ard.h">
