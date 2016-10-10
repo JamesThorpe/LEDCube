@@ -24,32 +24,29 @@ unsigned char portMask = (1<<4) | (1<<3) | (1<<2) | (1<<1) | 1;
 void isr_output() {
 	//get a pointer to the next layer - 8 bytes worth
 	unsigned char* layer;
+    layer = cube->GetLayer(currentLayer);
 
-        layer = cube->GetLayer(currentLayer);
 
 	//get ready for latching data
 	digitalWrite(PIN_SINKLATCH, HIGH);
 
-	
-
-	//loop through and send layer information to columns
+	//loop through and send layer information to columns.  Use built in arduino SPI hardware for speed
 	char bc = 7;
 	do {
           SPI.transfer(layer[bc]);
 	} while (--bc >=0);
 	
-	//disable sinks - turn off entire cube
-	//digitalWrite(PIN_SINKOUTPUT, HIGH);	// *** keep minimal code between here...
+	//disable layer - turn off entire cube
+	digitalWrite(PIN_LAYERENABLE, LOW);  // *** keep minimal code between here...
 
-digitalWrite(PIN_LAYERENABLE, LOW);
-	//latch data
+	//latch column data
 	digitalWrite(PIN_SINKLATCH, LOW);
 
 	//PORTD = 00-07, using 05 - 07 for layer.  00 & 01 are serial
 	PORTD = (PORTD & portMask) | ((currentLayer) << 5);
-digitalWrite(PIN_LAYERENABLE, HIGH);
-	//enable sinks
-	//digitalWrite(PIN_SINKOUTPUT, LOW); // *** ...and here - any time spent between these lines is time the cube isn't on at all
+
+	//enable source
+	digitalWrite(PIN_LAYERENABLE, HIGH);  // *** ...and here - any time spent between these lines is time the cube isn't on at all
 
 	//get ready for next layer
 	if (++currentLayer == 8) currentLayer = 0;

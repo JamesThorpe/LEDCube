@@ -71,5 +71,9 @@
     <None Include="ledcube2\ledcube2.ino">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="LICENSE.txt" />
   </ItemGroup>
 </Project>

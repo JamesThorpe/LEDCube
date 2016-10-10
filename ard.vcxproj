@@ -85,6 +85,10 @@
   <ItemGroup>
     <None Include="ardports.txt" />
     <None Include="ledcube2\ledcube2.ino" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="LICENSE.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
