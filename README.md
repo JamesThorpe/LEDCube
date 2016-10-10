@@ -1,5 +1,5 @@
 # LED Cube
-This is the software repository behind James Thorpe's LED Cube.
+This is the software repository behind [James Thorpe's LED Cube](https://www.youtube.com/watch?v=mR4xdvMhIeU).
 
 ## Hardware
 
