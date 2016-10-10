@@ -5,18 +5,7 @@
 using namespace std;
 
 #include "ledcube2/Cube.h"
-#include "ledcube2/animations.h"
 #include "ledcube2/core.h"
-
-#define PIN_SINKLATCH	9
-#define PIN_SINKDATA	11 //SPI
-#define PIN_SINKOUTPUT	8
-#define PIN_SINKCLOCK	13 //SPI
-
-#define PIN_LAYERSELECTA 5
-#define PIN_LAYERSELECTB 6
-#define PIN_LAYERSELECTC 7
-#define PIN_LAYERENABLE 4
 
 Cube *cube;
 

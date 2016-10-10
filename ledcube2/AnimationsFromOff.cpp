@@ -7,34 +7,10 @@ void anim_OffToOffText() {
 //go from off to a corner
 void anim_OffToCornerSimple() {
 	CubeCorners corner = (CubeCorners)random(8);
-
+	
 	char x, y, z;
-	switch(corner) {
-	case Corner_xyz:
-		x=y=z=0;
-		break;
-	case Corner_pxyz:
-		x=7;y=z=0;
-		break;
-	case Corner_xpyz:
-		x=z=0;y=7;
-		break;
-	case Corner_xypz:
-		x=y=0;z=7;
-		break;
-	case Corner_pxpyz:
-		x=y=7;z=0;
-		break;
-	case Corner_pxypz:
-		x=z=7;y=0;
-		break;
-	case Corner_xpypz:
-		x=0;y=z=7;
-		break;
-	case Corner_pxpypz:
-		x=y=z=7;
-		break;
-	}
+	anim_SetCoordFromCorner(&x, &y, &z, corner);
+
 	bool on = false;
 	for (char c = 100; c >= 0; c-=5) {
 		on = !on;
